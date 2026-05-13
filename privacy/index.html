@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Política de Privacidade | ADEGA CHARDONNAY</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{--primary:#722f37;--primary-dark:#4a1a20;--primary-glow:#a84458;--bg-deep:#0d0507;--bg-darker:#150a0c;--bg-mid:#2a1218;--steel:#9a7a7e;--white:#f9f0f1;--white-dim:rgba(249,240,241,0.72);--white-faint:rgba(255,255,255,0.10);--font-display:'Playfair Display',sans-serif;--font-body:'Lato',sans-serif;--font-narrow:'Lato',sans-serif}
+    html{scroll-behavior:smooth}body{font-family:var(--font-body);background:var(--bg-deep);color:var(--white);overflow-x:hidden}
+    ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg-darker)}::-webkit-scrollbar-thumb{background:var(--primary);border-radius:3px}
+    nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;justify-content:space-between;align-items:center;padding:0 4vw;height:68px;background:rgba(0,0,0,0.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,0.08);transition:background 0.3s}
+    .nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+    .nav-logo-badge{width:38px;height:38px;background:var(--primary);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:20px;color:white;font-weight:900}
+    .nav-logo-text{font-family:var(--font-display);font-size:1.4rem;color:var(--white);letter-spacing:1px}.nav-logo-text span{color:var(--primary-glow)}
+    .nav-links{display:flex;gap:2rem;list-style:none}.nav-links a{font-family:var(--font-narrow);font-size:0.85rem;font-weight:600;color:var(--steel);text-decoration:none;letter-spacing:1px;text-transform:uppercase;transition:color 0.25s}.nav-links a:hover{color:var(--primary-glow)}
+    .page-header{padding:130px 4vw 70px;background:radial-gradient(ellipse 60% 50% at 60% 50%,rgba(255,255,255,0.05) 0%,transparent 70%),linear-gradient(135deg,var(--bg-deep) 0%,var(--bg-mid) 50%,var(--bg-deep) 100%);border-bottom:1px solid rgba(255,255,255,0.06);position:relative;overflow:hidden}
+    .page-header::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
+    .page-header-inner{position:relative;z-index:1;max-width:860px;margin:0 auto}
+    .page-header-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);padding:0.35rem 1rem;border-radius:4px;font-family:var(--font-narrow);font-size:0.75rem;font-weight:700;color:var(--primary-glow);letter-spacing:2px;text-transform:uppercase;margin-bottom:1.2rem}
+    .page-header h1{font-family:var(--font-display);font-size:clamp(2rem,5vw,3.5rem);color:var(--white);margin-bottom:0.8rem}
+    .page-header-cnpj{font-size:0.88rem;color:var(--white-dim)}.page-header-cnpj strong{color:var(--primary-glow)}
+    .content{max-width:860px;margin:0 auto;padding:4rem 2rem}
+    .update-badge{display:inline-flex;align-items:center;gap:8px;background:var(--white-faint);border:1px solid rgba(255,255,255,0.12);padding:0.4rem 1rem;border-radius:4px;font-family:var(--font-narrow);font-size:0.78rem;color:var(--primary-glow);margin-bottom:2.5rem}
+    .card{background:var(--white-faint);border:1px solid rgba(255,255,255,0.08);padding:2rem;border-radius:8px;margin-bottom:1.5rem;transition:border-color 0.3s}.card:hover{border-color:var(--primary)}
+    .card-header{display:flex;align-items:center;gap:12px;margin-bottom:1rem}
+    .card-number{font-family:var(--font-narrow);font-size:0.75rem;font-weight:700;color:var(--primary-glow);letter-spacing:2px;text-transform:uppercase;background:rgba(255,255,255,0.08);padding:0.2rem 0.6rem;border-radius:3px}
+    .card h2{font-family:var(--font-display);font-size:1.3rem;color:var(--white)}
+    .card p{font-size:0.92rem;color:var(--white-dim);line-height:1.75;margin-bottom:0.6rem}.card p:last-child{margin-bottom:0}
+    .card ul{padding-left:1.4rem;margin-top:0.4rem}.card ul li{font-size:0.92rem;color:var(--white-dim);line-height:1.75;margin-bottom:0.3rem}
+    .company-block{background:var(--white-faint);border-left:3px solid var(--primary);padding:0.8rem 1rem;margin-top:0.8rem;border-radius:0 4px 4px 0}
+    .company-block p{font-size:0.88rem;color:var(--white-dim);line-height:1.7}.company-block strong{color:var(--white)}
+    footer{background:var(--bg-darker);border-top:1px solid rgba(255,255,255,0.06);padding:4rem 4vw 2rem}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+    .footer-brand h2{font-family:var(--font-display);font-size:1.8rem;margin-bottom:0.8rem}.footer-brand h2 span{color:var(--primary-glow)}
+    .footer-brand p{color:var(--steel);font-size:0.92rem;line-height:1.7}
+    .footer-col h4{font-family:var(--font-narrow);font-size:0.8rem;font-weight:700;color:var(--white);letter-spacing:2px;text-transform:uppercase;margin-bottom:1rem}
+    .footer-col ul{list-style:none}.footer-col ul li{margin-bottom:0.5rem}.footer-col ul li a{color:var(--steel);text-decoration:none;font-size:0.9rem;transition:color 0.25s}.footer-col ul li a:hover{color:var(--primary-glow)}
+    .footer-bottom{display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,0.06);padding-top:1.5rem;flex-wrap:wrap;gap:0.5rem}
+    .footer-legal p{font-size:0.82rem;color:var(--steel)}
+    .footer-policy-links{display:flex;gap:1.5rem}.footer-policy-links a{color:var(--steel);text-decoration:none;font-size:0.82rem;transition:color 0.25s}.footer-policy-links a:hover{color:var(--primary-glow)}
+    @media(max-width:768px){.nav-links{display:none}.footer-grid{grid-template-columns:1fr;gap:2rem}}
+  </style>
+</head>
+<body>
+<nav id="navbar">
+  <a href="../" class="nav-logo">
+    <div class="nav-logo-badge">A</div>
+    <div class="nav-logo-text">ADEGA <span>CHARDONNAY</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../#servicos">Serviços</a></li>
+    <li><a href="../#sobre">Sobre</a></li>
+    <li><a href="../#contato">Contato</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="page-header-tag">🍷 Política de Privacidade</div>
+    <h1>Política de Privacidade</h1>
+    <p class="page-header-cnpj"><strong>ADEGA CHARDONNAY LTDA</strong> · CNPJ: <strong>48.310.910/0001-05</strong></p>
+  </div>
+</div>
+
+<div class="content">
+  <div class="update-badge">📅 Última atualização: 23 de abril de 2026</div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-number">01</span><h2>Informações Gerais</h2></div>
+    <p>Esta Política de Privacidade descreve como a <strong>ADEGA CHARDONNAY LTDA</strong> trata os dados pessoais coletados neste site, em conformidade com a Lei Geral de Proteção de Dados (Lei nº 13.709/2018 — LGPD).</p>
+    <div class="company-block">
+      <p><strong>ADEGA CHARDONNAY LTDA</strong><br>CNPJ: 48.310.910/0001-05<br>R MAURI TORRETI, 60, SALA 03 CORREDOR 05, PORTAL DE SAO FRANCISCO – ASSIS – SP – CEP: 19.807-466<br>Telefone: (44) 8857-1909 · E-mail: CHARDONNAYADEGA@HOTMAIL.COM</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-number">02</span><h2>Dados Coletados</h2></div>
+    <p>Ao utilizar o formulário de contato deste site, podemos coletar os seguintes dados pessoais:</p>
+    <ul>
+      <li>Nome completo</li>
+      <li>Número de telefone</li>
+      <li>Endereço de e-mail</li>
+      <li>Preferências de bebidas e produtos de interesse (vinhos, cervejas, destilados)</li>
+      <li>Informações sobre pedidos ou encomendas de produtos</li>
+      <li>Mensagens e conteúdo enviado voluntariamente pelo formulário</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-number">03</span><h2>Finalidade do Tratamento</h2></div>
+    <p>Os dados coletados são utilizados exclusivamente para as seguintes finalidades:</p>
+    <ul>
+      <li>Responder a solicitações sobre disponibilidade e preços de bebidas e produtos gourmet</li>
+      <li>Processamento de pedidos de vinhos finos, cervejas artesanais, destilados e produtos alimentícios</li>
+      <li>Estabelecer contato comercial para ofertas e novidades do portfólio</li>
+      <li>Envio de informações sobre promoções mediante autorização do titular</li>
+      <li>Cumprimento de obrigações legais relacionadas ao comércio varejista</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-number">04</span><h2>Armazenamento e Segurança</h2></div>
+    <p>Os dados coletados são armazenados em ambiente seguro, com adoção de medidas técnicas e administrativas adequadas para proteção contra acesso não autorizado, alteração, divulgação ou destruição.</p>
+    <p>Os dados são mantidos pelo período necessário ao atendimento das finalidades descritas e às exigências legais aplicáveis, podendo ser excluídos a pedido do titular, salvo obrigação legal de retenção.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-number">05</span><h2>Compartilhamento de Dados</h2></div>
+    <p>A ADEGA CHARDONNAY LTDA não compartilha, vende, aluga ou cede seus dados pessoais a terceiros para fins comerciais.</p>
+    <p>O compartilhamento pode ocorrer exclusivamente nas seguintes situações:</p>
+    <ul>
+      <li>Cumprimento de obrigação legal ou regulatória</li>
+      <li>Ordem judicial ou requisição de autoridade competente</li>
+      <li>Prestadores de serviços logísticos para entrega de produtos, sob cláusula de confidencialidade</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-number">06</span><h2>Seus Direitos (LGPD)</h2></div>
+    <p>Nos termos da Lei nº 13.709/2018, você possui os seguintes direitos em relação aos seus dados pessoais:</p>
+    <ul>
+      <li><strong>Confirmação e acesso:</strong> saber se tratamos seus dados e acessá-los</li>
+      <li><strong>Correção:</strong> solicitar a correção de dados incompletos, inexatos ou desatualizados</li>
+      <li><strong>Anonimização, bloqueio ou eliminação:</strong> de dados desnecessários ou tratados em desconformidade</li>
+      <li><strong>Portabilidade:</strong> receber seus dados em formato estruturado</li>
+      <li><strong>Revogação do consentimento:</strong> a qualquer momento, sem prejuízo da licitude do tratamento anterior</li>
+      <li><strong>Oposição:</strong> se discordar de algum tratamento realizado</li>
+    </ul>
+    <p>Para exercer seus direitos, entre em contato pelo e-mail ou telefone indicados na seção 7.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-number">07</span><h2>Contato do Responsável</h2></div>
+    <p>Para dúvidas, solicitações ou exercício de direitos relacionados à privacidade e proteção de dados, entre em contato:</p>
+    <div class="company-block">
+      <p><strong>ADEGA CHARDONNAY LTDA</strong><br>E-mail: CHARDONNAYADEGA@HOTMAIL.COM<br>Telefone: (44) 8857-1909<br>Endereço: R MAURI TORRETI, 60, SALA 03 CORREDOR 05, PORTAL DE SAO FRANCISCO – ASSIS – SP – CEP: 19.807-466</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-number">08</span><h2>Alterações desta Política</h2></div>
+    <p>Esta Política de Privacidade pode ser atualizada periodicamente para refletir mudanças em nossas práticas de tratamento de dados ou alterações na legislação aplicável.</p>
+    <p>Recomendamos que você revise esta página periodicamente. A data da última atualização estará sempre indicada no topo desta página. O uso continuado do site após as alterações constitui aceitação da política atualizada.</p>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand"><h2>ADEGA <span>CHARDONNAY</span></h2><p>Comércio varejista de bebidas e produtos alimentícios. Atendendo ASSIS e região.</p></div>
+    <div class="footer-col"><h4>Serviços</h4><ul><li><a href="../#servicos">Vinhos Finos</a></li><li><a href="../#servicos">Cervejas Artesanais</a></li><li><a href="../#servicos">Destilados Premium</a></li><li><a href="../#servicos">Produtos Gourmet</a></li></ul></div>
+    <div class="footer-col"><h4>Institucional</h4><ul><li><a href="../#sobre">Sobre Nós</a></li><li><a href="../#contato">Contato</a></li><li><a href="../privacy/">Política de Privacidade</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-legal"><p>© 2026 <strong>ADEGA CHARDONNAY LTDA</strong> - Todos os direitos reservados.</p><p>CNPJ: <strong>48.310.910/0001-05</strong> · R MAURI TORRETI, 60, SALA 03 CORREDOR 05, ASSIS – SP · Tel: (44) 8857-1909</p></div>
+    <div class="footer-policy-links"><a href="../privacy/">Privacidade</a></div>
+  </div>
+</footer>
+<script>
+  window.addEventListener('scroll',()=>{document.getElementById('navbar').style.background=window.scrollY>50?'rgba(0,0,0,0.98)':'rgba(0,0,0,0.88)';});
+</script>
+</body>
+</html>

@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ADEGA CHARDONNAY - Comércio varejista de bebidas e produtos alimentícios em ASSIS - SP.">
+  <meta name="keywords" content="Vinhos Finos, Cervejas Artesanais, Destilados Premium, Produtos Gourmet, ASSIS, SP">
+  <meta name="author" content="ADEGA CHARDONNAY LTDA">
+  <meta name="geo.region" content="BR-SP">
+  <meta name="geo.placename" content="ASSIS">
+  <title>ADEGA CHARDONNAY | Bebidas & Gastronomia – ASSIS/SP</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='14' fill='%23722f37'/><text y='.9em' font-size='72' font-family='serif' font-weight='900' fill='white' x='12'>A</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --primary: #722f37;
+      --primary-dark: #4a1a20;
+      --primary-glow: #a84458;
+      --bg-deep: #0d0507;
+      --bg-darker: #150a0c;
+      --bg-mid: #2a1218;
+      --steel: #9a7a7e;
+      --white: #f9f0f1;
+      --white-dim: rgba(249,240,241,0.72);
+      --white-faint: rgba(255,255,255,0.10);
+      --font-display: 'Playfair Display', sans-serif;
+      --font-body: 'Lato', sans-serif;
+      --font-narrow: 'Lato', sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); background: var(--bg-deep); color: var(--white); overflow-x: hidden; }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg-darker); }
+    ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 3px; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0 4vw; height: 68px;
+      background: rgba(0,0,0,0.88); backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      transition: background 0.3s;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-logo-badge {
+      width: 38px; height: 38px; background: var(--primary);
+      border-radius: 8px; display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display); font-size: 20px; color: white; font-weight: 900;
+    }
+    .nav-logo-text { font-family: var(--font-display); font-size: 1.4rem; color: var(--white); letter-spacing: 1px; }
+    .nav-logo-text span { color: var(--primary-glow); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-family: var(--font-narrow); font-size: 0.85rem; font-weight: 600;
+      color: var(--steel); text-decoration: none; letter-spacing: 1px; text-transform: uppercase; transition: color 0.25s;
+    }
+    .nav-links a:hover { color: var(--primary-glow); }
+    .nav-cta {
+      font-family: var(--font-narrow); font-size: 0.82rem; font-weight: 700;
+      color: var(--primary) !important; border: 1.5px solid var(--primary);
+      padding: 0.4rem 1rem; letter-spacing: 1px; text-transform: uppercase;
+      transition: background 0.25s, color 0.25s !important; border-radius: 4px;
+    }
+    .nav-cta:hover { background: var(--primary) !important; color: white !important; }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 6px; }
+    .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--white); transition: all 0.3s; }
+
+    #hero {
+      min-height: 100vh; display: flex; align-items: center;
+      position: relative; overflow: hidden; padding: 120px 4vw 80px;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 70% 50%, rgba(255,255,255,0.07) 0%, transparent 70%),
+        linear-gradient(135deg, var(--bg-deep) 0%, var(--bg-mid) 50%, var(--bg-deep) 100%);
+    }
+    .hero-grid-lines {
+      position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .hero-glow {
+      position: absolute; right: 8%; top: 50%; transform: translateY(-50%);
+      width: 420px; height: 420px;
+      background: radial-gradient(circle, color-mix(in srgb, var(--primary) 30%, transparent) 0%, transparent 65%);
+      border-radius: 50%; pointer-events: none; z-index: 0;
+      animation: pulse-glow 3s ease-in-out infinite;
+    }
+    @keyframes pulse-glow {
+      0%, 100% { opacity: 0.7; transform: translateY(-50%) scale(1); }
+      50% { opacity: 1; transform: translateY(-50%) scale(1.1); }
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 700px; }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15);
+      padding: 0.35rem 1rem; border-radius: 4px;
+      font-family: var(--font-narrow); font-size: 0.75rem; font-weight: 700;
+      color: var(--primary-glow); letter-spacing: 2px; text-transform: uppercase;
+      margin-bottom: 1.8rem;
+    }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 6.5vw, 5.5rem);
+      line-height: 1.0; letter-spacing: 1px; color: var(--white); margin-bottom: 1.5rem;
+    }
+    .hero h1 .accent { color: var(--primary-glow); display: block; }
+    .hero-desc { font-size: 1.05rem; line-height: 1.75; color: var(--white-dim); max-width: 520px; margin-bottom: 2.5rem; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--primary); color: white;
+      font-family: var(--font-narrow); font-size: 0.9rem; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none;
+      padding: 0.9rem 2rem; border: none; cursor: pointer; border-radius: 4px;
+      transition: background 0.25s, transform 0.2s;
+    }
+    .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1.5px solid rgba(255,255,255,0.3); color: var(--steel);
+      font-family: var(--font-narrow); font-size: 0.9rem; font-weight: 600;
+      letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none;
+      padding: 0.9rem 2rem; transition: border-color 0.25s, color 0.25s; border-radius: 4px;
+    }
+    .btn-secondary:hover { border-color: var(--primary); color: var(--white); }
+
+    .cnpj-badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--white-faint); border: 1px solid rgba(255,255,255,0.12);
+      padding: 0.5rem 1rem; border-radius: 4px; margin-top: 2rem;
+    }
+    .cnpj-badge span { font-family: var(--font-narrow); font-size: 0.78rem; color: var(--steel); letter-spacing: 1px; }
+    .cnpj-badge strong { font-family: var(--font-narrow); font-size: 0.9rem; color: var(--primary-glow); font-weight: 700; letter-spacing: 1px; }
+
+    section { padding: 80px 4vw; }
+    .section-label {
+      font-family: var(--font-narrow); font-size: 0.75rem; font-weight: 700;
+      color: var(--primary-glow); letter-spacing: 3px; text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+    .section-title { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.15; margin-bottom: 1.2rem; }
+    .section-title span { color: var(--primary-glow); }
+
+    #servicos { background: var(--bg-darker); }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+    .service-card {
+      background: var(--white-faint); border: 1px solid rgba(255,255,255,0.08);
+      padding: 2rem; border-radius: 8px; transition: border-color 0.3s, transform 0.3s;
+    }
+    .service-card:hover { border-color: var(--primary); transform: translateY(-4px); }
+    .service-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .service-card h3 { font-family: var(--font-display); font-size: 1.2rem; margin-bottom: 0.75rem; color: var(--white); }
+    .service-card p { font-size: 0.92rem; color: var(--steel); line-height: 1.6; }
+
+    #sobre { background: var(--bg-deep); }
+    .sobre-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-top: 2rem; }
+    .sobre-text p { color: var(--white-dim); line-height: 1.75; margin-bottom: 1rem; font-size: 1.02rem; }
+    .sobre-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .stat-box {
+      background: var(--white-faint); border: 1px solid rgba(255,255,255,0.08);
+      padding: 1.5rem; border-radius: 8px; text-align: center;
+    }
+    .stat-num { font-family: var(--font-display); font-size: 2.5rem; color: var(--primary-glow); }
+    .stat-label { font-size: 0.85rem; color: var(--steel); letter-spacing: 1px; text-transform: uppercase; }
+
+    #contato { background: var(--bg-darker); }
+    .contato-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3rem; }
+    .contato-info h4 { font-family: var(--font-display); font-size: 1.1rem; color: var(--primary-glow); margin-bottom: 0.4rem; margin-top: 1.5rem; }
+    .contato-info p, .contato-info a { color: var(--white-dim); text-decoration: none; font-size: 0.95rem; }
+    .contato-info a:hover { color: var(--primary-glow); }
+    .form-group { margin-bottom: 1.2rem; }
+    .form-group label { display: block; font-size: 0.82rem; font-weight: 600; color: var(--steel); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.4rem; }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; background: var(--white-faint); border: 1px solid rgba(255,255,255,0.12);
+      color: var(--white); padding: 0.75rem 1rem; font-family: var(--font-body); font-size: 0.95rem;
+      border-radius: 4px; transition: border-color 0.25s; outline: none;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--primary); }
+    .form-group select option { background: var(--bg-mid); }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-submit {
+      width: 100%; background: var(--primary); color: white; border: none; cursor: pointer;
+      font-family: var(--font-narrow); font-size: 0.9rem; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; padding: 1rem; border-radius: 4px; transition: background 0.25s;
+    }
+    .form-submit:hover { background: var(--primary-dark); }
+    #formSuccess { display: none; background: rgba(0,180,0,0.12); border: 1px solid rgba(0,180,0,0.3); padding: 1rem; border-radius: 4px; margin-top: 1rem; text-align: center; color: #4caf50; }
+
+    footer {
+      background: var(--bg-darker); border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 4rem 4vw 2rem;
+    }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+    .footer-brand h2 { font-family: var(--font-display); font-size: 1.8rem; margin-bottom: 0.8rem; }
+    .footer-brand h2 span { color: var(--primary-glow); }
+    .footer-brand p { color: var(--steel); font-size: 0.92rem; line-height: 1.7; margin-bottom: 1rem; }
+    .footer-brand .contact-line { font-size: 0.88rem; color: var(--white-dim); }
+    .footer-col h4 { font-family: var(--font-narrow); font-size: 0.8rem; font-weight: 700; color: var(--white); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1rem; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 0.5rem; }
+    .footer-col ul li a { color: var(--steel); text-decoration: none; font-size: 0.9rem; transition: color 0.25s; }
+    .footer-col ul li a:hover { color: var(--primary-glow); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 1.5rem; flex-wrap: wrap; gap: 0.5rem; }
+    .footer-legal p { font-size: 0.82rem; color: var(--steel); }
+    .footer-policy-links { display: flex; gap: 1.5rem; }
+    .footer-policy-links a { color: var(--steel); text-decoration: none; font-size: 0.82rem; transition: color 0.25s; }
+    .footer-policy-links a:hover { color: var(--primary-glow); }
+
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.8);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none; transition: opacity 0.3s;
+    }
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+    .modal-box {
+      background: var(--bg-mid); border: 1px solid rgba(255,255,255,0.1);
+      padding: 2.5rem; max-width: 640px; width: 90%; max-height: 80vh; overflow-y: auto;
+      border-radius: 8px; position: relative;
+    }
+    .modal-box h2 { font-family: var(--font-display); color: var(--primary-glow); margin-bottom: 0.4rem; font-size: 1.6rem; }
+    .modal-box h3 { color: var(--white); margin: 1.2rem 0 0.4rem; font-size: 1rem; }
+    .modal-box p, .modal-box li { color: var(--white-dim); font-size: 0.92rem; line-height: 1.7; }
+    .modal-box ul { padding-left: 1.2rem; }
+    .modal-updated { color: var(--steel); font-size: 0.82rem; margin-bottom: 1.2rem; }
+    .modal-company-data { background: var(--white-faint); border-left: 3px solid var(--primary); padding: 0.8rem 1rem; margin-bottom: 1.2rem; border-radius: 0 4px 4px 0; }
+    .modal-close { position: absolute; top: 1rem; right: 1rem; background: none; border: none; color: var(--steel); cursor: pointer; font-size: 1.2rem; }
+    .modal-close:hover { color: var(--white); }
+    .modal-divider { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 1.5rem 0; }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; flex-direction: column; position: fixed; top: 68px; left: 0; right: 0; background: rgba(0,0,0,0.98); padding: 2rem 4vw; gap: 1.5rem; }
+      .nav-links.open { display: flex; }
+      .nav-hamburger { display: flex; }
+      .sobre-grid, .contato-grid, .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">
+    <div class="nav-logo-badge">A</div>
+    <div class="nav-logo-text">ADEGA <span>CHARDONNAY</span></div>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#contato">Contato</a></li>
+    <li><a href="#contato" class="nav-cta">Fale Conosco</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-tag">🍷 Bebidas & Gastronomia</div>
+    <h1>ADEGA <span class="accent">CHARDONNAY</span></h1>
+    <p class="hero-desc">A Adega Chardonnay é especializada no comércio varejista de bebidas finas e produtos alimentícios selecionados, atendendo clientes em Assis e região com qualidade e tradição.</p>
+    <div class="hero-actions">
+      <a href="#contato" class="btn-primary">Solicitar Orçamento →</a>
+      <a href="#servicos" class="btn-secondary">Ver Serviços</a>
+    </div>
+    <div class="cnpj-badge">
+      <span>CNPJ:</span>
+      <strong>48.310.910/0001-05</strong>
+    </div>
+  </div>
+</section>
+
+<section id="servicos">
+  <div class="section-label">O que fazemos</div>
+  <h2 class="section-title">Nossos <span>Serviços</span></h2>
+  <p style="color:var(--white-dim);max-width:580px;">A Adega Chardonnay é especializada no comércio varejista de bebidas finas e produtos alimentícios selecionados, atendendo clientes em Assis e região com qualidade e tradição.</p>
+  <div class="services-grid">
+    
+        <div class="service-card reveal">
+          <div class="service-icon">🍷</div>
+          <h3>Vinhos Finos</h3>
+          <p>Serviço especializado em vinhos finos para atender suas necessidades com qualidade e comprometimento.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon">🍷</div>
+          <h3>Cervejas Artesanais</h3>
+          <p>Serviço especializado em cervejas artesanais para atender suas necessidades com qualidade e comprometimento.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon">🍷</div>
+          <h3>Destilados Premium</h3>
+          <p>Serviço especializado em destilados premium para atender suas necessidades com qualidade e comprometimento.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon">🍷</div>
+          <h3>Produtos Gourmet</h3>
+          <p>Serviço especializado em produtos gourmet para atender suas necessidades com qualidade e comprometimento.</p>
+        </div>
+  </div>
+</section>
+
+<section id="sobre">
+  <div class="section-label">Nossa empresa</div>
+  <h2 class="section-title">Sobre a <span>ADEGA</span></h2>
+  <div class="sobre-grid">
+    <div class="sobre-text reveal">
+      <p>A Adega Chardonnay é especializada no comércio varejista de bebidas finas e produtos alimentícios selecionados, atendendo clientes em Assis e região com qualidade e tradição.</p>
+      <p>Localizada em <strong>ASSIS - SP</strong>, nossa empresa está comprometida com a excelência no atendimento e a satisfação total dos nossos clientes.</p>
+      <p>Com situação cadastral <strong>ATIVA</strong> perante a Receita Federal, operamos com transparência e responsabilidade empresarial.</p>
+    </div>
+    <div class="sobre-stats reveal">
+      <div class="stat-box"><div class="stat-num">ATIVA</div><div class="stat-label">Situação Cadastral</div></div>
+      <div class="stat-box"><div class="stat-num">4</div><div class="stat-label">Serviços Oferecidos</div></div>
+      <div class="stat-box"><div class="stat-num">ME</div><div class="stat-label">Porte da Empresa</div></div>
+      <div class="stat-box"><div class="stat-num">2022</div><div class="stat-label">Ano de Abertura</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contato">
+  <div class="section-label">Fale conosco</div>
+  <h2 class="section-title">Entre em <span>Contato</span></h2>
+  <div class="contato-grid">
+    <div class="contato-info reveal">
+      <h4>Endereço</h4>
+      <p>R MAURI TORRETI, 60, SALA 03 CORREDOR 05, PORTAL DE SAO FRANCISCO, ASSIS – SP, CEP 19.807-466</p>
+      <h4>Telefone</h4>
+      <a href="tel:(44) 8857-1909">(44) 8857-1909</a>
+      <h4>E-mail</h4>
+      <a href="mailto:CHARDONNAYADEGA@HOTMAIL.COM">CHARDONNAYADEGA@HOTMAIL.COM</a>
+      <h4>CNPJ</h4>
+      <p>48.310.910/0001-05</p>
+    </div>
+    <div class="contato-form reveal">
+      <form onsubmit="handleSubmit(event)">
+        <div class="form-group">
+          <label>Nome *</label>
+          <input type="text" placeholder="Seu nome completo" required>
+        </div>
+        <div class="form-group">
+          <label>Telefone *</label>
+          <input type="tel" placeholder="(44) 8857-1909" required>
+        </div>
+        <div class="form-group">
+          <label>E-mail</label>
+          <input type="email" placeholder="CHARDONNAYADEGA@HOTMAIL.COM">
+        </div>
+        <div class="form-group">
+          <label>Serviço de Interesse</label>
+          <select>
+            <option>Vinhos Finos</option><option>Cervejas Artesanais</option><option>Destilados Premium</option><option>Produtos Gourmet</option>
+            <option>Outro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Mensagem</label>
+          <textarea placeholder="Descreva sua necessidade..."></textarea>
+        </div>
+        <button type="submit" class="form-submit">Enviar Solicitação</button>
+        <div id="formSuccess">✓ Mensagem enviada com sucesso! Retornaremos em breve.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h2>ADEGA <span>CHARDONNAY</span></h2>
+      <p>Comércio varejista de bebidas e produtos alimentícios. Atendendo ASSIS e região com qualidade e comprometimento.</p>
+      <p class="contact-line">R MAURI TORRETI, 60, SALA 03 CORREDOR 05, PORTAL DE SAO FRANCISCO, ASSIS – SP, CEP 19.807-466<br>(44) 8857-1909 | CHARDONNAYADEGA@HOTMAIL.COM</p>
+    </div>
+    <div class="footer-col">
+      <h4>Serviços</h4>
+      <ul><li><a href="#servicos">Vinhos Finos</a></li><li><a href="#servicos">Cervejas Artesanais</a></li><li><a href="#servicos">Destilados Premium</a></li><li><a href="#servicos">Produtos Gourmet</a></li></ul>
+    </div>
+    <div class="footer-col">
+      <h4>Institucional</h4>
+      <ul>
+        <li><a href="#sobre">Sobre Nós</a></li>
+        <li><a href="#contato">Contato</a></li>
+        <li><a href="#" onclick="openModal('privacy')">Política de Privacidade</a></li>
+        <li><a href="#" onclick="openModal('terms')">Termos de Uso</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-legal">
+      <p>© 2026 <strong>ADEGA CHARDONNAY LTDA</strong> - Todos os direitos reservados.</p>
+      <p>CNPJ: <strong>48.310.910/0001-05</strong> · R MAURI TORRETI, 60, SALA 03 CORREDOR 05, PORTAL DE SAO FRANCISCO, ASSIS – SP, CEP 19.807-466 · Tel: (44) 8857-1909</p>
+    </div>
+    <div class="footer-policy-links">
+      <a href="#" onclick="openModal('privacy')">Privacidade</a>
+      <a href="#" onclick="openModal('terms')">Termos</a>
+    </div>
+  </div>
+</footer>
+
+<!-- MODAL PRIVACIDADE -->
+<div class="modal-overlay" id="modal-privacy">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('privacy')">✕</button>
+    <h2>POLÍTICA DE PRIVACIDADE</h2>
+    <p class="modal-updated">Última atualização: abril de 2026</p>
+    <div class="modal-company-data">
+      <p><strong>ADEGA CHARDONNAY LTDA</strong> | CNPJ: 48.310.910/0001-05<br>
+      R MAURI TORRETI, 60, SALA 03 CORREDOR 05, PORTAL DE SAO FRANCISCO, ASSIS – SP, CEP 19.807-466<br>E-mail: CHARDONNAYADEGA@HOTMAIL.COM | Tel: (44) 8857-1909</p>
+    </div>
+    <h3>1. Quem somos</h3>
+    <p>A ADEGA CHARDONNAY, inscrita no CNPJ sob o nº 48.310.910/0001-05, com sede em R MAURI TORRETI, 60, SALA 03 CORREDOR 05, PORTAL DE SAO FRANCISCO, ASSIS – SP, CEP 19.807-466, é responsável pelo tratamento dos dados pessoais coletados neste site.</p>
+    <h3>2. Dados que coletamos</h3>
+    <p>Ao utilizar nosso formulário de contato, podemos coletar:</p>
+    <ul><li>Nome completo</li><li>Número de telefone</li><li>Endereço de e-mail</li><li>Informações sobre o serviço solicitado</li></ul>
+    <h3>3. Finalidade do tratamento</h3>
+    <p>Os dados coletados são utilizados exclusivamente para responder às solicitações de orçamento e estabelecer contato comercial.</p>
+    <h3>4. Compartilhamento de dados</h3>
+    <p>Não compartilhamos, vendemos ou cedemos seus dados pessoais a terceiros, exceto quando exigido por lei ou ordem judicial.</p>
+    <h3>5. Seus direitos (LGPD)</h3>
+    <p>Conforme a Lei Geral de Proteção de Dados (Lei nº 13.709/2018), você pode solicitar acesso, correção, exclusão ou portabilidade dos seus dados pelo e-mail CHARDONNAYADEGA@HOTMAIL.COM.</p>
+    <h3>6. Contato do controlador</h3>
+    <p>CHARDONNAYADEGA@HOTMAIL.COM | (44) 8857-1909</p>
+    <hr class="modal-divider">
+    <p style="font-size:0.8rem;color:var(--steel)">© 2026 ADEGA CHARDONNAY LTDA – CNPJ 48.310.910/0001-05 – Todos os direitos reservados.</p>
+  </div>
+</div>
+
+<!-- MODAL TERMOS -->
+<div class="modal-overlay" id="modal-terms">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('terms')">✕</button>
+    <h2>TERMOS DE USO</h2>
+    <p class="modal-updated">Última atualização: abril de 2026</p>
+    <div class="modal-company-data">
+      <p><strong>ADEGA CHARDONNAY LTDA</strong> | CNPJ: 48.310.910/0001-05<br>
+      R MAURI TORRETI, 60, SALA 03 CORREDOR 05, PORTAL DE SAO FRANCISCO, ASSIS – SP, CEP 19.807-466<br>E-mail: CHARDONNAYADEGA@HOTMAIL.COM | Tel: (44) 8857-1909</p>
+    </div>
+    <h3>1. Aceitação dos termos</h3>
+    <p>Ao acessar este site, você concorda com os presentes Termos de Uso.</p>
+    <h3>2. Sobre a empresa</h3>
+    <p>Este site pertence à ADEGA CHARDONNAY, empresa regularmente constituída, CNPJ 48.310.910/0001-05, situação cadastral ATIVA perante a Receita Federal, atuante em Comércio varejista de bebidas e produtos alimentícios.</p>
+    <h3>3. Uso do site</h3>
+    <p>Este site tem finalidade exclusivamente informativa e comercial. É vedado utilizá-lo para fins ilícitos ou reproduzir conteúdo sem autorização prévia.</p>
+    <h3>4. Orçamentos e serviços</h3>
+    <p>As informações apresentadas são de caráter ilustrativo. Orçamentos oficiais são fornecidos após análise pelo responsável técnico.</p>
+    <h3>5. Propriedade intelectual</h3>
+    <p>Todo o conteúdo deste site é de propriedade da ADEGA CHARDONNAY e não pode ser reproduzido sem autorização.</p>
+    <h3>6. Responsabilidade</h3>
+    <p>A ADEGA CHARDONNAY não se responsabiliza por falhas temporárias de acesso ao site.</p>
+    <h3>7. Foro</h3>
+    <p>Fica eleito o foro da Comarca de ASSIS – SP para dirimir quaisquer controvérsias.</p>
+    <hr class="modal-divider">
+    <p style="font-size:0.8rem;color:var(--steel)">© 2026 ADEGA CHARDONNAY LTDA – CNPJ 48.310.910/0001-05 – Todos os direitos reservados.</p>
+  </div>
+</div>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+  document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').style.background = window.scrollY > 50 ? 'rgba(0,0,0,0.98)' : 'rgba(0,0,0,0.88)';
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 80); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.form-submit');
+    btn.textContent = 'Enviando...'; btn.disabled = true;
+    setTimeout(() => {
+      document.getElementById('formSuccess').style.display = 'block';
+      btn.textContent = 'Enviar Solicitação'; btn.disabled = false;
+      e.target.reset();
+      setTimeout(() => document.getElementById('formSuccess').style.display = 'none', 5000);
+    }, 1200);
+  }
+
+  function openModal(id) { event.preventDefault(); document.getElementById('modal-' + id).classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeModal(id) { document.getElementById('modal-' + id).classList.remove('open'); document.body.style.overflow = ''; }
+  document.querySelectorAll('.modal-overlay').forEach(m => {
+    m.addEventListener('click', e => { if (e.target === m) { m.classList.remove('open'); document.body.style.overflow = ''; } });
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') document.querySelectorAll('.modal-overlay.open').forEach(m => { m.classList.remove('open'); document.body.style.overflow = ''; });
+  });
+</script>
+</body>
+</html>
