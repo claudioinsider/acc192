@@ -1,6 +1,38 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <script>
+      function getQueryParams() {
+        return new URLSearchParams(window.location.search)
+      }
+
+
+      function combineParams(originalHref, currentParams) {
+        let [baseUrl, originalParamsString] = originalHref.split("?")
+        let originalParams = new URLSearchParams(originalParamsString || "")
+        currentParams.forEach((value, key) => {
+          if (!originalParams.has(key)) {
+            originalParams.append(key, value)
+          }
+        })
+        let finalParamsString = originalParams.toString()
+        return finalParamsString ? `${baseUrl}?${finalParamsString}` : baseUrl
+      }
+
+
+      document.addEventListener("DOMContentLoaded", function () {
+        let buttons = document.querySelectorAll("a")
+        let currentParams = getQueryParams()
+        buttons.forEach(function (button) {
+          let originalHref = button.getAttribute("href")
+          button.setAttribute(
+            "href",
+            combineParams(originalHref, currentParams),
+          )
+        })
+      })
+    </script>
+
     <script
       src="https://cdn.utmify.com.br/scripts/utms/latest.js"
       data-utmify-prevent-xcod-sck
